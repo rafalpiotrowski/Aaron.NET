@@ -1,0 +1,45 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3200
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        http:
+        grpc:
+    jaeger:
+      protocols:
+        thrift_compact:
+          endpoint: 0.0.0.0:6831
+        thrift_binary:
+          endpoint: 0.0.0.0:6832
+        grpc:
+          endpoint: 0.0.0.0:14250
+        thrift_http:
+          endpoint: 0.0.0.0:14268
+        
+compactor:
+  compaction:
+    block_retention: 1h                # configure total trace retention here
+
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+  storage:
+    path: /tmp/tempo/generator/wal
+    remote_write:
+      - url: http://prometheus:9090/api/v1/write
+        send_exemplars: true
+
+overrides:
+  metrics_generator_processors: [service-graphs, span-metrics]
+
+storage:
+  trace:
+    backend: local
+    local:
+      path: /tmp/tempo
+

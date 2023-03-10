@@ -1,0 +1,51 @@
+version: '3'
+
+networks:
+  aaron:
+    external: true
+    
+services:
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    hostname: azurite
+    networks:
+      - aaron
+    ports:
+      - '10000:10000'
+      - '10001:10001'
+      - '10002:10002'
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://localhost:3100/loki/api/v1/push"
+        loki-external-labels: "job=azurite"
+  
+  matchingengine:
+    image: matchingengine:latest
+    networks:
+      - aaron
+    ports:
+      - '9110-9112:9110'
+      - '8080-8082:80'
+      - '8070-8072:443'    
+    deploy:
+      replicas: 3
+    environment:
+      ASPNETCORE_ENVIRONMENT: Azure
+      JAEGER_AGENT_HOST: tempo
+      ConnectionStrings__Azurite: "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;QueueEndpoint=http://azurite:10001/devstoreaccount1;TableEndpoint=http://azurite:10002/devstoreaccount1;"
+      AkkaSettings__AkkaManagementOptions__Port: "8558"
+      AkkaSettings__RemoteOptions__Port: "8557"
+    labels:
+      - "prometheus.scrape=true"
+      - "prometheus.port=80"
+    logging:
+      driver: loki
+      options: # seems that when using loki in place of localhost the containers take long time to stop
+        loki-url: "http://localhost:3100/loki/api/v1/push"
+        loki-external-labels: "job=matchingengine,container_name={{.Name}},environment=development"
+        loki-pipeline-stages: |
+          - regex:
+              expression: '(LogLevel|level|lvl|severity)=(?P<level>\w+)'
+          - labels:
+              level:        
