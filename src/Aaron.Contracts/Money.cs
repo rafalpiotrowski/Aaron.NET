@@ -188,5 +188,5 @@ public sealed record class Money : IProtocolMember
 
 public static class MoneyMathExtensions
 {
-    public static Money Round(this Money money, int precission) => new(money.Amount, money.Currency, precission);
+    public static Money Round(this Money money, int precision) => new(money.Amount, money.Currency, precision);
 }

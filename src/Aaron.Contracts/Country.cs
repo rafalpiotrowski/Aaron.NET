@@ -40,7 +40,7 @@ public sealed record class Country : IProtocolMember
         };
 
     /// <summary>
-    /// if not matched then returns new Country(code,code,Currency.Empty)
+    /// if not matched then returns new Country(code,code,new())
     /// </summary>
     /// <param name="code"></param>
     /// <param name="country"></param>
