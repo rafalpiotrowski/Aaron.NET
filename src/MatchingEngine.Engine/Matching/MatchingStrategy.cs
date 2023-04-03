@@ -1,4 +1,4 @@
-namespace MatchingEngine.Matching;
+namespace MatchingEngine.Engine.Matching;
 
 public abstract class MatchingStrategy
 {

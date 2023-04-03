@@ -38,6 +38,7 @@
       <ProjectReference Include="..\Aaron.Contracts\Aaron.Contracts.csproj" />
       <ProjectReference Include="..\Aaron.Infrastructure\Aaron.Infrastructure.csproj" />
       <ProjectReference Include="..\MatchingEngine.Actors\MatchingEngine.Actors.csproj" />
+      <ProjectReference Include="..\MatchingEngine.Engine\MatchingEngine.Engine.csproj" />
       <ProjectReference Include="..\MatchingEngine\MatchingEngine.csproj" />
     </ItemGroup>
 

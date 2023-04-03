@@ -12,4 +12,8 @@
         <PackageReference Include="Akka.Cluster.Hosting" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Aaron.Infrastructure\Aaron.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

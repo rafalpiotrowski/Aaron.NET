@@ -1,3 +1,3 @@
 global using Xunit;
-global using MatchingEngine.ObjectPool;
+global using MatchingEngine.Engine.ObjectPool;
 global using Microsoft.Extensions.ObjectPool;

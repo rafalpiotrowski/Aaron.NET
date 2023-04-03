@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Akka.Cluster.Hosting" />
+        <PackageReference Include="protobuf-net" />
         <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" />
         <PackageReference Include="OpenTelemetry.Exporter.Jaeger" />
         <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" />
@@ -13,5 +15,8 @@
         <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
         <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
         <PackageReference Include="OpenTelemetry.Instrumentation.Process" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Aaron.Contracts\Aaron.Contracts.csproj" />
     </ItemGroup>
 </Project>

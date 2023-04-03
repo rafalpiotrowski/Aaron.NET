@@ -10,7 +10,7 @@ namespace Aaron.Actors;
 /// <remarks>
 /// Intended for simplifying unit tests where we don't want to use Akka.Cluster.Sharding.
 /// </remarks>
-public sealed class GenericChildPerEntityParent : ReceiveActor
+public sealed class GenericChildPerEntityParent : Aaron.Actors.Actor
 {
     public static Props Props(IMessageExtractor extractor, Func<string, Props> propsFactory)
     {

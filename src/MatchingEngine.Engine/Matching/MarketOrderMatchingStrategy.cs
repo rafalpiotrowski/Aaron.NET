@@ -1,4 +1,4 @@
-namespace MatchingEngine.Matching;
+namespace MatchingEngine.Engine.Matching;
 
 public class MarketOrderMatchingStrategy : MatchingStrategy
 {

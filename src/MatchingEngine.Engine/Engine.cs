@@ -1,13 +1,14 @@
-﻿using MatchingEngine.Matching;
+﻿using MatchingEngine.Engine.Matching;
 
-namespace MatchingEngine;
+namespace MatchingEngine.Engine;
 
-public class MatchingEngine
+public class Engine
 {
     private readonly OrderBook _book;
+    public OrderBook Book => _book;
     private readonly MarketOrderMatchingStrategy _marketOrderMatchingStrategy;
 
-    public MatchingEngine(OrderBook book, DefaultObjectPool<Order> orderPool)
+    public Engine(OrderBook book, DefaultObjectPool<Order> orderPool)
     {
         _book = book;
         //todo: initialize all the strategies

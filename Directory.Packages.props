@@ -5,20 +5,25 @@
   <!-- Akka.NET Package Versions -->
   <ItemGroup>
     <PackageVersion Include="Akka" Version="1.5.1" />
-    <PackageVersion Include="Akka.Cluster.Hosting" Version="1.5.0" />
+    <PackageVersion Include="Akka.Remote" Version="1.5.1" />
+    <PackageVersion Include="Akka.Cluster.Hosting" Version="1.5.1" />
     <PackageVersion Include="Akka.Discovery.Azure" Version="1.5.0" />
     <PackageVersion Include="Akka.HealthCheck.Hosting.Web" Version="1.5.0.1" />
     <PackageVersion Include="Akka.Management" Version="1.5.0" />
-    <PackageVersion Include="Akka.Persistence" Version="1.5.0" />
-    <PackageVersion Include="Akka.Persistence.Azure.Hosting" Version="1.5.0" />
-    <PackageVersion Include="Microsoft.NET.Build.Containers" Version="0.3.2" />
-    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.5" />
+    <PackageVersion Include="Akka.Persistence" Version="1.5.1" />
+    <PackageVersion Include="Akka.Persistence.Azure.Hosting" Version="1.5.1" />
     <PackageVersion Include="Petabridge.Cmd.Cluster.Sharding" Version="$(PbmVersion)" />
     <PackageVersion Include="Petabridge.Cmd.Cluster" Version="$(PbmVersion)" />
     <PackageVersion Include="Petabridge.Cmd.Remote" Version="$(PbmVersion)" />
   </ItemGroup>
+  <!-- protobuf-net Package Versions -->
+  <ItemGroup>
+    <PackageVersion Include="protobuf-net" Version="3.2" />
+  </ItemGroup>
   <!-- ASP.NET Core Package Versions -->
   <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Build.Containers" Version="0.3.2" />
+    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.5" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="7.0.0" />

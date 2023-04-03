@@ -4,8 +4,8 @@ using Akka.Cluster.Hosting;
 using Akka.Cluster.Sharding;
 using Akka.Hosting;
 using Aaron.Configuration;
-using Aaron.Contracts;
 using MatchingEngine.Actors;
+using MatchingEngine.Contracts;
 
 namespace MatchingEngine.Service.Configuration;
 
@@ -19,7 +19,7 @@ public static class AkkaConfiguration
 
         if (settings.UseClustering)
         {
-            return builder.WithShardRegion<MatchingEngineActor>("counter",
+            return builder.WithShardRegion<MatchingEngineActor>("matchingengine",
                 (system, registry, resolver) => s => Props.Create(() => new MatchingEngineActor(s)),
                 extractor, settings.ShardOptions);
         }
@@ -30,7 +30,7 @@ public static class AkkaConfiguration
                 var parent =
                     system.ActorOf(
                         GenericChildPerEntityParent.Props(extractor, s => Props.Create(() => new MatchingEngineActor(s))),
-                        "counters");
+                        "matchingengines");
                 registry.Register<MatchingEngineActor>(parent);
             });
         }
@@ -42,7 +42,7 @@ public static class AkkaConfiguration
         {
             return o switch
             {
-                IWithId<string> exchangeId => exchangeId.Id,
+                IWithEngineId msg => msg.EngineId,
                 ShardRegion.StartEntity startEntity => startEntity.EntityId,
                 _ => string.Empty
             };

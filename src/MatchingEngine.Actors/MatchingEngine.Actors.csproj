@@ -11,6 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MatchingEngine\MatchingEngine.csproj" />
+      <ProjectReference Include="..\Aaron.Actors\Aaron.Actors.csproj" />
+      <ProjectReference Include="..\MatchingEngine.Contracts\MatchingEngine.Contracts.csproj" />
+      <ProjectReference Include="..\MatchingEngine.Engine\MatchingEngine.Engine.csproj" />
     </ItemGroup>
 </Project>

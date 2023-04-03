@@ -7,8 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Aaron.Infrastructure\Aaron.Infrastructure.csproj" />
-      <ProjectReference Include="..\MatchingEngine.Contracts\MatchingEngine.Contracts.csproj" />
+        <PackageReference Include="protobuf-net" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aaron.Contracts\Aaron.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

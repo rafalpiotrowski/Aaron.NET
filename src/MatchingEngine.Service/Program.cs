@@ -2,6 +2,10 @@ using Akka.HealthCheck.Hosting;
 using Akka.HealthCheck.Hosting.Web;
 using Aaron.Configuration;
 using Aaron.Infrastructure;
+using Aaron.Infrastructure.Monitoring;
+using Aaron.Infrastructure.Serialization;
+using MatchingEngine.Actors;
+using MatchingEngine.Serialization;
 using MatchingEngine.Service.Configuration;
 
 var builder = WebApplication.CreateBuilder(args)
@@ -22,9 +26,13 @@ builder.Services.WithAkkaHealthCheck(HealthCheckType.All);
 builder.Services.ConfigureAaron(builder.Configuration, (akkaConfigurationBuilder, serviceProvider) =>
 {
     // we configure instrumentation separately from the internals of the ActorSystem
-    akkaConfigurationBuilder.ConfigurePetabridgeCmd();
-    akkaConfigurationBuilder.WithWebHealthCheck(serviceProvider);
-    akkaConfigurationBuilder.ConfigureMatchingEngineActors(serviceProvider);
+    akkaConfigurationBuilder.ConfigurePetabridgeCmd()
+        .WithWebHealthCheck(serviceProvider)
+        .WithTraceableDispatcher(dispatcher => 
+            dispatcher.AddTraceableAssemblyOf<MatchingEngineActor>())
+        .AddAaronContractsSerialization()
+        .AddMatchingEngineSerialization()
+        .ConfigureMatchingEngineActors(serviceProvider);
 });
 
 

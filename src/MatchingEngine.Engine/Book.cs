@@ -1,4 +1,4 @@
-namespace MatchingEngine;
+namespace MatchingEngine.Engine;
 
 public abstract class Book
 {
