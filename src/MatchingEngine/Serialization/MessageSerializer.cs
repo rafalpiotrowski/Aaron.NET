@@ -12,5 +12,5 @@ public sealed class MessageSerializer : ProtobufMessageSerializer<MessageSeriali
         Add<OrderMatched>("ordermatched");
     }
 
-    public MessageSerializer(ExtendedActorSystem system) : base(1001, system) { }
+    public MessageSerializer(ExtendedActorSystem system) : base(1003, system) { }
 }

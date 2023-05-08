@@ -1,3 +1,4 @@
+using Aaron.Contracts;
 using Aaron.Infrastructure.Monitoring;
 using Akka.Actor;
 using Akka.Cluster.Sharding;
@@ -35,6 +36,9 @@ public abstract class PersistentActor : Akka.Persistence.ReceivePersistentActor
     /// <returns></returns>
     protected virtual bool CheckIfCleanSnapshotsRequired(SaveSnapshotSuccess msg) => 
         msg.Metadata.SequenceNr % 100 == 0;
+
+    protected abstract PersistenceId Id { get; }
+    public override string PersistenceId => Id.Value;
 
     protected PersistentActor()
     {

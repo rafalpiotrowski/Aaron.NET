@@ -7,6 +7,7 @@ tools/
 docker/grafana/data/
 docker/grafana/config/
 docker/grafana/provisioning/
+**/ddata*
 
 ## NBench output
 [Pp]erf[Rr]esult*/

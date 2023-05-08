@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="protobuf-net.Core">
+        <HintPath>..\..\..\..\.nuget\packages\protobuf-net.core\3.2.0\lib\net6.0\protobuf-net.Core.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aaron.Contracts\Aaron.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

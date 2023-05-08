@@ -1,4 +1,5 @@
 using Aaron.Actors;
+using Aaron.Contracts;
 using Akka.Event;
 using MatchingEngine.Contracts;
 
@@ -13,11 +14,8 @@ public class MatchingEngineActor : PersistentActor
     /// should never be changed
     /// </summary>
     public const string MatchingEngineActorPersistenceIdPrefix = "me";
-    /// <summary>
-    /// should never be changed
-    /// </summary>
-    public const string MatchingEngineActorPersistenceIdSeperator = "_";
-    public sealed override string PersistenceId { get; }
+
+    protected override PersistenceId Id { get; }
 
     /// <summary>
     /// TBD
@@ -25,7 +23,12 @@ public class MatchingEngineActor : PersistentActor
     /// <param name="entityName">instrument code</param>
     public MatchingEngineActor(string entityName)
     {
-        PersistenceId = $"{MatchingEngineActorPersistenceIdPrefix}{MatchingEngineActorPersistenceIdSeperator}{entityName}";
+        Id = new()
+        {
+            Prefix = MatchingEngineActorPersistenceIdPrefix,
+            Delimiter = Aaron.Contracts.PersistenceId.UnderscoreDelimiter,
+            EntityId = entityName
+        };
 
         Logger.Info($"Matching Engine: {PersistenceId} created");
         

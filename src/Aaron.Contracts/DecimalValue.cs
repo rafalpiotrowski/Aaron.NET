@@ -2,7 +2,7 @@ using ProtoBuf;
 
 namespace Aaron.Contracts;
 
-[ProtoContract(SkipConstructor = true)]
+[ProtoContract]
 public sealed record DecimalValue
 {
     private const decimal NanoFactor = 1_000_000_000;

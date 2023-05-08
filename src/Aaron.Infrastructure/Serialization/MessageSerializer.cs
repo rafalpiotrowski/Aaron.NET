@@ -8,10 +8,10 @@ public sealed class MessageSerializer : ProtobufMessageSerializer<MessageSeriali
     static MessageSerializer()
     {
         Add<Currency>("ccy");
-        Add<Money>("money");
-        Add<ExchangeRate>("exrate");
-        Add<Country>("country");
+        Add<Money>("m");
+        Add<ExchangeRate>("exr");
+        Add<Country>("co");
     }
 
-    public MessageSerializer(ExtendedActorSystem system) : base(1002, system) { }
+    public MessageSerializer(ExtendedActorSystem system) : base(1001, system) { }
 }
