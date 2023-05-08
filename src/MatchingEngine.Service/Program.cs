@@ -67,3 +67,11 @@ app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.MapEnv();
 
 app.Run();
+
+/// <summary>
+/// Required for integration tests
+/// </summary>
+public partial class Program
+{
+    
+}
