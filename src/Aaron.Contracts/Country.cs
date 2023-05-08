@@ -2,8 +2,6 @@ using ProtoBuf;
 
 namespace Aaron.Contracts;
 
-
-
 [ProtoContract(SkipConstructor = false)]
 public sealed record class Country : IProtocolMember
 {
