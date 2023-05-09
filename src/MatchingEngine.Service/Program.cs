@@ -26,7 +26,7 @@ builder.Services.WithAkkaHealthCheck(HealthCheckType.All);
 builder.Services.ConfigureAaron(builder.Configuration, (akkaConfigurationBuilder, serviceProvider) =>
 {
     // we configure instrumentation separately from the internals of the ActorSystem
-    akkaConfigurationBuilder.ConfigurePetabridgeCmd()
+    akkaConfigurationBuilder.ConfigurePetabridgeCmd(cmd => { })
         .WithWebHealthCheck(serviceProvider)
         .WithTraceableDispatcher(dispatcher => 
             dispatcher.AddTraceableAssemblyOf<MatchingEngineActor>())

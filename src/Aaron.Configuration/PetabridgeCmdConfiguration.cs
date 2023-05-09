@@ -9,13 +9,14 @@ namespace Aaron.Configuration;
 
 public static class PetabridgeCmdConfiguration
 {
-    public static AkkaConfigurationBuilder ConfigurePetabridgeCmd(this AkkaConfigurationBuilder builder)
+    public static AkkaConfigurationBuilder ConfigurePetabridgeCmd(this AkkaConfigurationBuilder builder, Action<PetabridgeCmd> hostConfiguration)
     {
         return builder.AddPetabridgeCmd(cmd =>
         {
             cmd.RegisterCommandPalette(ClusterCommands.Instance);
             cmd.RegisterCommandPalette(new RemoteCommands());
             cmd.RegisterCommandPalette(ClusterShardingCommands.Instance);
+            hostConfiguration(cmd);
         });
     }
 }

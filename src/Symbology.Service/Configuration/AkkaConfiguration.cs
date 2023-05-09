@@ -5,8 +5,10 @@ using Akka.Cluster.Sharding;
 using Akka.Hosting;
 using Aaron.Configuration;
 using Aaron.Contracts;
+using Petabridge.Cmd.Host;
 using Symbology.Actors;
 using Symbology.Contracts;
+using Symbology.Service.CommandPalettes;
 
 namespace Symbology.Service.Configuration;
 
@@ -16,7 +18,7 @@ public static class AkkaConfiguration
         IServiceProvider serviceProvider)
     {
         var settings = serviceProvider.GetRequiredService<AkkaSettings>();
-        var extractor = CreateMatchingEngineMessageRouter();
+        var extractor = CreateInstrumentMessageRouter();
 
         if (settings.UseClustering)
         {
@@ -37,7 +39,7 @@ public static class AkkaConfiguration
         }
     }
 
-    public static HashCodeMessageExtractor CreateMatchingEngineMessageRouter()
+    public static HashCodeMessageExtractor CreateInstrumentMessageRouter()
     {
         var extractor = HashCodeMessageExtractor.Create(30, o =>
         {
@@ -49,5 +51,11 @@ public static class AkkaConfiguration
             };
         }, o => o);
         return extractor;
+    }
+    
+    public static PetabridgeCmd ConfigureSymbologyPetabridgeCmd(this PetabridgeCmd cmd)
+    {
+        cmd.RegisterCommandPalette(SymbologyCommands.Instance);
+        return cmd;
     }
 }
