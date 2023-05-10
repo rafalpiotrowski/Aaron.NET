@@ -5,7 +5,7 @@ namespace Symbology.Contracts;
 ///
 /// Used by Akka.NET to select the correct serializer.
 /// </summary>
-public interface IProtocolMember
+public interface ISymbologyProtocolMember
 {
 
 }
