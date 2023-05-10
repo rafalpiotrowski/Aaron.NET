@@ -11,7 +11,7 @@ public static class SerializationHostingExtensions
     /// </summary>
     public static AkkaConfigurationBuilder AddSymbologySerialization(this AkkaConfigurationBuilder builder)
     {
-        return builder.WithCustomSerializer("symbology", new[] { typeof(IProtocolMember) },
+        return builder.WithCustomSerializer("symbology", new[] { typeof(ISymbologyProtocolMember) },
             system => new MessageSerializer(system));
     }
 }

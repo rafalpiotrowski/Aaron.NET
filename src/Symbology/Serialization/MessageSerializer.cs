@@ -14,7 +14,7 @@ public sealed class MessageSerializer : ProtobufMessageSerializer<MessageSeriali
 
         Add<AddInstrument>("ai");
         Add<AddInstrumentOk>("ai_ok");
-        Add<AddInstrumentError>("ai_err");
+        Add<AddInstrumentFailed>("ai_err");
     }
 
     public MessageSerializer(ExtendedActorSystem system) : base(1002, system) { }
