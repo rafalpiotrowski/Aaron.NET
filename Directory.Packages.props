@@ -4,6 +4,7 @@
   </PropertyGroup>
   <!-- Akka.NET Package Versions -->
   <ItemGroup>
+    <PackageVersion Include="Aeron.Cluster" Version="1.40.0" />
     <PackageVersion Include="Akka" Version="1.5.1" />
     <PackageVersion Include="Akka.Remote" Version="1.5.1" />
     <PackageVersion Include="Akka.Cluster.Hosting" Version="1.5.1" />
