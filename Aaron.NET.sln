@@ -48,6 +48,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "src\Gateway\Gate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Service", "src\Gateway.Service\Gateway.Service.csproj", "{A21787D6-A64E-454E-9DB1-83A6B8C4AE8A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EAFA8C3A-F52B-47A4-8A33-520C05B9AF45}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
