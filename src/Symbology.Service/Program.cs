@@ -4,6 +4,7 @@ using Aaron.Configuration;
 using Aaron.Infrastructure;
 using Aaron.Infrastructure.Monitoring;
 using Aaron.Infrastructure.Serialization;
+using Aeron.MediaDriver;
 using Symbology.Actors;
 using Symbology.Serialization;
 using Symbology.Service.Configuration;
@@ -38,6 +39,7 @@ builder.Services.ConfigureAaron(builder.Configuration, (akkaConfigurationBuilder
         .ConfigureSymbologyActors(serviceProvider);
 });
 
+builder.Services.AddHostedService<AeronMediaDriverBackgroundService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

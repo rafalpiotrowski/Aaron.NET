@@ -4,14 +4,14 @@ using ProtoBuf;
 namespace Symbology.Contracts.Events;
 
 [ProtoContract]
-public sealed record AddInstrumentOk : IEvent
+public sealed record AddInstrumentOk : ISymbologyEvent
 {
     public MessageHeader Header { get; init; } = MessageHeader.Empty;
     public required InstrumentId InstrumentId { get; init; }
 }
 
 [ProtoContract]
-public sealed record AddInstrumentError : IEvent
+public sealed record AddInstrumentError : ISymbologyEvent
 {
     public MessageHeader Header { get; init; } = MessageHeader.Empty;
     public required Instrument Instrument { get; init; }

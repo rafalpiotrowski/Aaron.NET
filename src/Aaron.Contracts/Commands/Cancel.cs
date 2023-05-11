@@ -1,6 +1,6 @@
 using ProtoBuf;
 
-namespace Aaron.Contracts.Events;
+namespace Aaron.Contracts.Commands;
 
 [ProtoContract]
 public sealed record Cancel : IMessage

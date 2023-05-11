@@ -11,7 +11,7 @@ public sealed record InstrumentId
 }
 
 [ProtoContract]
-public sealed record Instrument : IProtocolMember, IWithId<InstrumentId>
+public sealed record Instrument : ISymbologyProtocolMember, IWithId<InstrumentId>
 {
     public InstrumentId Id { get; init; } = InstrumentId.Empty;
     /// <summary>

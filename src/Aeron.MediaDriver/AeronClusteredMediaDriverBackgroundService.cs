@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Aeron.MediaDriver;
 
-public sealed class AeronMediaDriverBackgroundService : IHostedService
+public sealed class AeronClusteredMediaDriverBackgroundService : IHostedService
 {
-    private readonly ILogger<AeronMediaDriverBackgroundService> _logger;
+    private readonly ILogger<AeronClusteredMediaDriverBackgroundService> _logger;
 
-    public AeronMediaDriverBackgroundService(ILogger<AeronMediaDriverBackgroundService> logger)
+    public AeronClusteredMediaDriverBackgroundService(ILogger<AeronClusteredMediaDriverBackgroundService> logger)
     {
         _logger = logger;
     }
@@ -22,7 +22,13 @@ public sealed class AeronMediaDriverBackgroundService : IHostedService
             StartInfo = new ProcessStartInfo
             {
                 FileName = "java",
-                Arguments = "-cp ./aeron/media-driver.jar --illegal-access=warn io.aeron.driver.MediaDriver",
+                Arguments = "-cp ./aeron/media-driver.jar " + 
+                            "-Daeron.cluster.ingress.channel=aeron:udp?endpoint=localhost:9010 " +
+                            "-Daeron.archive.control.channel=aeron:udp?endpoint=localhost:8010 " + 
+                            "-Daeron.archive.replication.channel=aeron:udp?endpoint=localhost:0 " + 
+                            "-Daeron.cluster.replication.channel=aeron:udp?endpoint=localhost:9011 " +
+                            "-Daeron.cluster.members=\"0,localhost:20000,localhost:20001,localhost:20002,localhost:0,localhost:8010\" " +
+                            "io.aeron.cluster.ClusteredMediaDriver",
                 RedirectStandardError = true,
                 RedirectStandardOutput = true,
                 UseShellExecute = false,

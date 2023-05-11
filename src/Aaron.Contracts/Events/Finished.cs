@@ -1,6 +1,9 @@
+using ProtoBuf;
+
 namespace Aaron.Contracts.Events;
 
-public class Finished
+[ProtoContract]
+public sealed record Finished : IMessage
 {
-    
+    public MessageHeader Header { get; init; } = MessageHeader.Empty;
 }

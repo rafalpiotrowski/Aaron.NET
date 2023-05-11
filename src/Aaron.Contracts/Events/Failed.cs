@@ -1,6 +1,9 @@
+using ProtoBuf;
+
 namespace Aaron.Contracts.Events;
 
-public class Failed
+[ProtoContract]
+public sealed record Failed : IMessage
 {
-    
+    public MessageHeader Header { get; init; } = MessageHeader.Empty;
 }

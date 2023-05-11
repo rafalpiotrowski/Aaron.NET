@@ -2,6 +2,7 @@ using System.Linq.Expressions;
 using Akka.Actor;
 using Petabridge.Cmd.Host;
 using Petabridge.Cmd;
+#pragma warning disable CS8618
 
 namespace Symbology.Service.CommandPalettes;
 
