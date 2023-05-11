@@ -6,12 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="protobuf-net" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Aaron.Contracts\Aaron.Contracts.csproj" />
-    </ItemGroup>
-
 </Project>

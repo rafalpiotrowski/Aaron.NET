@@ -4,6 +4,7 @@
   </PropertyGroup>
   <!-- Akka.NET Package Versions -->
   <ItemGroup>
+    <PackageVersion Include="Aeron.Cluster" Version="1.40.0" />
     <PackageVersion Include="Aeron.Driver" Version="1.40.0" />
     <PackageVersion Include="Akka" Version="1.5.1" />
     <PackageVersion Include="Akka.Remote" Version="1.5.1" />
@@ -14,7 +15,6 @@
     <PackageVersion Include="Akka.Persistence" Version="1.5.1" />
     <PackageVersion Include="Akka.Persistence.Azure.Hosting" Version="1.5.1" />
     <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
     <PackageVersion Include="Petabridge.Cmd.Cluster.Sharding" Version="$(PbmVersion)" />
     <PackageVersion Include="Petabridge.Cmd.Cluster" Version="$(PbmVersion)" />
     <PackageVersion Include="Petabridge.Cmd.Remote" Version="$(PbmVersion)" />

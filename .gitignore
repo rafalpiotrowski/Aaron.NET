@@ -8,6 +8,7 @@ docker/grafana/data/
 docker/grafana/config/
 docker/grafana/provisioning/
 **/ddata*
+**/aeron-*
 
 ## NBench output
 [Pp]erf[Rr]esult*/
