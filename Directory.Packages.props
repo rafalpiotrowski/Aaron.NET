@@ -2,10 +2,12 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
+  <!-- ASP.NET Package Versions -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+  </ItemGroup>
   <!-- Akka.NET Package Versions -->
   <ItemGroup>
-    <PackageVersion Include="Aeron.Cluster" Version="1.40.0" />
-    <PackageVersion Include="Aeron.Driver" Version="1.40.0" />
     <PackageVersion Include="Akka" Version="1.5.1" />
     <PackageVersion Include="Akka.Remote" Version="1.5.1" />
     <PackageVersion Include="Akka.Cluster.Hosting" Version="1.5.1" />
@@ -14,10 +16,14 @@
     <PackageVersion Include="Akka.Management" Version="1.5.0" />
     <PackageVersion Include="Akka.Persistence" Version="1.5.1" />
     <PackageVersion Include="Akka.Persistence.Azure.Hosting" Version="1.5.1" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
     <PackageVersion Include="Petabridge.Cmd.Cluster.Sharding" Version="$(PbmVersion)" />
     <PackageVersion Include="Petabridge.Cmd.Cluster" Version="$(PbmVersion)" />
     <PackageVersion Include="Petabridge.Cmd.Remote" Version="$(PbmVersion)" />
+  </ItemGroup>
+  <!-- Aeron Package Versions -->
+  <ItemGroup>
+    <PackageVersion Include="Aeron.Cluster" Version="1.40.0" />
+    <PackageVersion Include="Aeron.Driver" Version="1.40.0" />
   </ItemGroup>
   <!-- protobuf-net Package Versions -->
   <ItemGroup>
@@ -30,6 +36,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="7.0.4" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="7.0.4" />
   </ItemGroup>
   <!-- OpenTelemetry Package Versions -->
