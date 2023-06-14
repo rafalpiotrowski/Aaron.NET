@@ -37,15 +37,8 @@
         <ProjectReference Include="..\Aaron.Configuration\Aaron.Configuration.csproj" />
         <ProjectReference Include="..\Aaron.Contracts\Aaron.Contracts.csproj" />
         <ProjectReference Include="..\Aaron.Infrastructure\Aaron.Infrastructure.csproj" />
-        <ProjectReference Include="..\Aeron.MediaDriver\Aeron.MediaDriver.csproj" />
         <ProjectReference Include="..\Symbology.Actors\Symbology.Actors.csproj" />
         <ProjectReference Include="..\Symbology\Symbology.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="aeron\media-driver.jar">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
     </ItemGroup>
 
 </Project>
