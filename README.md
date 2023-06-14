@@ -15,6 +15,13 @@ cd docker
 ./create-shared-network.sh
 ```
 
+## Install Loki Docker Driver
+
+[Docker driver](https://grafana.com/docs/loki/latest/clients/docker-driver/)
+```shell
+docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
+```
+
 ## Observability
 
 To start observability do:
